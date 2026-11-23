@@ -207,6 +207,11 @@ p{margin:0}
 .rest-info strong.n{font-size:16px}
 .star{color:var(--star)}
 .rest-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.rest-img{width:72px;height:72px;flex:none;border-radius:14px;object-fit:cover}
+.rest-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:8px}
+.rest-gallery img{width:100%;height:84px;object-fit:cover;border-radius:10px}
+.credit{font-size:11px;color:var(--muted)}
+.map{background:#E8E2D6}
 .rest-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
 
 /* membership */
@@ -485,7 +490,7 @@ footer strong{color:#fff}
     <p class="page-sub">Korean restaurants in south Chennai, with Google ratings. Tap a pin or a card, then get directions.</p>
     <label class="search" style="margin-top:24px;max-width:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5E6664" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sr">Search restaurants</span><input type="search" id="restSearch" placeholder="Search by restaurant name, area or dish…"></label>
     <div class="rest-layout">
-      <div class="map" id="map" role="group" aria-label="Map of south Chennai with Korean restaurants">
+      <div class="map" id="map"><iframe id="gmap" title="Google Map of the selected Korean restaurant" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe><div hidden>
         <div class="sea"></div><span class="lbl w" style="right:4%;top:50%">Bay of<br>Bengal</span>
         <div class="river"></div><span class="lbl w" style="left:4%;top:38%">Adyar River</span>
         <div class="road" style="left:0;right:20%;top:28%;height:9px"></div>
@@ -498,7 +503,7 @@ footer strong{color:#fff}
         <span class="lbl" style="left:50%;top:92%">Besant Nagar</span>
         <div id="pins"></div>
         <div class="pop" id="pop"></div>
-        <span class="map-note">Simplified map · pins placed from Google Maps coordinates</span>
+        </div><a class="map-note" href="https://www.google.com/maps/search/korean+restaurant+chennai" target="_blank" rel="noopener">See all on Google Maps ↗</a>
       </div>
       <ul class="rest-list" id="restList"></ul>
     </div>
@@ -611,7 +616,7 @@ const appUrl = {
 };
 
 const restaurants = [
-  { name:'Aeseo Korean Restaurant', area:'R.A. Puram', rating:4.6, reviews:'1,661', address:'15 East Ave, Kesavaperumalpuram, R.A. Puram, Chennai 600028', hours:'Lunch & dinner · break 3–5 pm', phone:'+91 44 4237 1004', tags:['Korean BBQ','Banchan','Veg options'], q:'Aeseo Korean Restaurant, 15 East Ave, Raja Annamalaipuram, Chennai', x:33, y:23 },
+  { name:'Aeseo Korean Restaurant', area:'R.A. Puram', rating:4.6, reviews:'1,661', address:'15 East Ave, Kesavaperumalpuram, R.A. Puram, Chennai 600028', hours:'Lunch & dinner · break 3–5 pm', phone:'+91 44 4237 1004', tags:['Korean BBQ','Banchan','Veg options'], photos:['https://aeseo.in/images/menu/exterior%20Aeseo1.webp','https://aeseo.in/images/menu/interior%20Aeseo1.webp','https://aeseo.in/images/menu/service%20aeseo1.webp'], credit:'Aeseo Korean Restaurant (aeseo.in)', q:'Aeseo Korean Restaurant, 15 East Ave, Raja Annamalaipuram, Chennai', x:33, y:23 },
   { name:'K-Street Restaurants', area:'R.A. Puram', rating:4.4, reviews:'7', address:'3F, 15 East Ave, Kesavaperumalpuram, R.A. Puram, Chennai 600028', hours:'Lunch & dinner · break 3–5 pm', tags:['New spot','Same building as Aeseo'], q:'K-Street Restaurants, 15 East Ave, Raja Annamalaipuram, Chennai', x:38, y:27 },
   { name:'Another Kitchen Adyar', area:'Adyar', rating:4.5, reviews:'931', address:'37, 2nd Main Rd, Kasturba Nagar, Adyar, Chennai 600020', hours:'Open until 10 pm · online order', phone:'+91 44 4355 0692', tags:['BBQ','Bakery','Sushi','Cheesecake'], q:'Another Kitchen Adyar, 37 2nd Main Rd, Kasturba Nagar, Chennai', x:20, y:68 },
   { name:'KIM-CHI Tower', area:'Besant Nagar', rating:3.6, reviews:'591', address:'T53/A, 4th Main Rd, Tiruvalluvar Nagar, Besant Nagar, Chennai 600090', hours:'Opens 1 pm · online order', tags:['Mojito','Chicken wings','Spicy noodles'], q:'KIM-CHI Tower, 4th Main Rd, Besant Nagar, Chennai', x:68, y:82 }
@@ -772,16 +777,16 @@ function renderRest(){
   if (list.length && !list.some(r => r.i === sel)) sel = list[0].i;
   $('#pins').innerHTML = list.map(r => `<button type="button" class="pin" style="left:${r.x}%;top:${r.y}%" data-rest="${r.i}" aria-label="${esc(r.name)}" aria-pressed="${r.i === sel}"><svg width="34" height="44" viewBox="0 0 34 44" aria-hidden="true"><path d="M17 43s15-14.5 15-26A15 15 0 0 0 2 17c0 11.5 15 26 15 26Z" stroke="#fff" stroke-width="2.5"/><circle cx="17" cy="17" r="6" fill="#fff"/></svg></button>`).join('');
   const s = restaurants[sel], pop = $('#pop');
-  pop.hidden = !list.length;
+  pop.hidden = true; const gm = $('#gmap'), gsrc = 'https://www.google.com/maps?q=' + encodeURIComponent(s.q) + '&z=16&output=embed'; if (gm.getAttribute('src') !== gsrc) gm.setAttribute('src', gsrc);
   pop.style.left = Math.min(s.x, 58) + '%'; pop.style.top = s.y + '%';
   pop.innerHTML = `<strong style="font-size:15px">${esc(s.name)}</strong><span style="font-size:13px"><span class="star" aria-hidden="true">★</span> ${s.rating} <span class="muted">(${s.reviews} reviews) · ${esc(s.area)}</span></span><span class="muted" style="font-size:12px">${esc(s.hours)}</span><a href="${mapsUrl(s)}" target="_blank" rel="noopener" style="font-size:13px;font-weight:700">Directions ↗</a>`;
   $('#restList').innerHTML = list.map(r => `<li class="card rest ${r.i === sel ? 'on' : ''}">
     <button type="button" class="rest-pick" data-rest="${r.i}" aria-pressed="${r.i === sel}">
-      <span class="rest-photo" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>Photo</span>
+      ${r.photos ? `<img class="rest-img" src="${r.photos[0]}" alt="" loading="lazy">` : `<span class="rest-photo" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>Photo</span>`}
       <span class="rest-info"><strong class="n">${esc(r.name)}</strong>
         <span><span class="star" aria-hidden="true">★</span> <strong>${r.rating}</strong> <span class="muted">(${r.reviews} Google reviews)</span></span>
         <span class="muted">${esc(r.address)}</span><span class="muted">${esc(r.hours)}${r.phone ? ' · ' + esc(r.phone) : ''}</span>
-        <span class="rest-tags">${r.tags.map(t => `<span class="pill">${esc(t)}</span>`).join('')}</span></span>
+        <span class="rest-tags">${r.tags.map(t => `<span class="pill">${esc(t)}</span>`).join('')}</span>${r.photos && r.i === sel ? `<span class="rest-gallery">${r.photos.map(p => `<img src="${p}" alt="Photo of ${esc(r.name)}" loading="lazy">`).join('')}</span><span class="credit">Photos: ${esc(r.credit)}</span>` : ''}</span>
     </button>
     <div class="rest-actions">
       <a class="btn btn-primary btn-sm" href="${mapsUrl(r)}" target="_blank" rel="noopener" aria-label="Directions to ${esc(r.name)} (Google Maps, new tab)">Directions ↗</a>
