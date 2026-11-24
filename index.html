@@ -93,11 +93,19 @@ p{margin:0}
 .drama-line svg{flex:none;margin-top:2px}
 .drama-sec{margin-top:56px}
 .drama-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.drama-card{display:flex;flex-direction:column;gap:12px;padding:20px;border-radius:20px;background:#1F2A2A;color:#F3EEE6;text-decoration:none;transition:transform .2s}
+.drama-card{display:flex;flex-direction:column;border-radius:20px;background:#1F2A2A;color:#F3EEE6;overflow:hidden;transition:transform .2s}
+.drama-body{display:flex;flex-direction:column;gap:10px;padding:16px 18px 18px;flex:1}
+.drama-vid{position:relative;aspect-ratio:16/9;background:#000}
+.drama-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.drama-play{position:absolute;inset:0;width:100%;height:100%;padding:0;border:none;background:#000;cursor:pointer}
+.drama-play img{width:100%;height:100%;object-fit:cover;opacity:.85}
+.drama-playic{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.drama-src{position:absolute;left:8px;bottom:8px;background:rgba(0,0,0,.7);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px}
+a.drama-cta{text-decoration:none}a.drama-cta:hover{color:#fff}
 .drama-card:hover{transform:translateY(-2px);color:#fff}
 .drama-tag{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:800;letter-spacing:.3px;color:#F5A07A}
 .drama-scene{font-size:16px;line-height:1.45;font-weight:600;flex:1}
-.drama-cta{font-size:13px;color:#BFD9D6}
+.drama-cta{font-size:13px;color:#BFD9D6;margin-top:auto}
 @media (max-width:1000px){.drama-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:480px){.drama-grid{grid-template-columns:1fr}}
 .banners{display:flex;flex-wrap:wrap;gap:20px;margin-top:48px}
@@ -343,7 +351,7 @@ footer strong{color:#fff}
     <section class="drama-sec" aria-labelledby="dramaH">
       <div class="section-head"><div><span class="eyebrow" style="color:var(--orange-text)">FROM K-DRAMA TO YOUR KITCHEN</span><h2 id="dramaH" style="margin-top:6px">The food you saw in the drama</h2><p class="muted" style="margin-top:6px">Pick the scene you remember — we’ll show you how to cook it with Indian ingredients.</p></div></div>
       <div class="drama-grid" id="homeDrama"></div>
-      <p class="muted" style="font-size:12px;margin-top:12px">Scene descriptions only — K-Indian Bite is not affiliated with these shows or their broadcasters.</p>
+      <p class="muted" style="font-size:12px;margin-top:12px">Trailers play from the official YouTube channels of each broadcaster or distributor. Scene descriptions are ours — K-Indian Bite is not affiliated with these shows.</p>
     </section>
 
     <div class="banners">
@@ -586,7 +594,7 @@ function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('sh
 
 /* ---------- data ---------- */
 const recipes = [
-  { id:'paneer-tteokbokki', name:'Paneer Tteokbokki', tag:'K-Fusion', img:'r1.jpg', hero:'hero.jpg', short:'Spicy, chewy and filling', drama:{title:'Good Partner', year:2024, scene:'The late-night tteokbokki that even a cold-hearted workaholic lawyer can’t resist'},
+  { id:'paneer-tteokbokki', name:'Paneer Tteokbokki', tag:'K-Fusion', img:'r1.jpg', hero:'hero.jpg', short:'Spicy, chewy and filling', drama:{title:'Good Partner', year:2024, scene:'The late-night tteokbokki that even a cold-hearted workaholic lawyer can’t resist', trailer:{id:'sOnai8g7QhE', by:'Viu', dur:'1:09'}},
     desc:'Chewy rice cakes and paneer in a spicy, savoury sauce. A real Korean dish made with local ingredients.',
     time:'10 min', level:'Easy', spice:'Medium spicy', likes:'1.2k',
     video:{ id:'fbAAJ8P55_U', title:'Tteokbokki with Indian Ingredients', by:'Times Foodie', dur:'2:37' },
@@ -594,21 +602,21 @@ const recipes = [
     steps:[['Prepare the ingredients','Cube the paneer; soak rice cakes in warm water for 10 minutes.','p1.jpg'],['Make the sauce','Mix tomato sauce, coconut milk, chilli powder and a pinch of sugar in a pan.','p3.jpg'],['Add the ingredients','Add rice cakes; simmer 6–8 minutes until soft, then add paneer.','r3.jpg'],['Finish','Garnish with spring onions and sesame. Serve hot.','r1.jpg']],
     subs:[['Fish cake (eomuk)','Paneer','Any grocery app'],['Gochujang','Tomato sauce + Kashmiri chilli + pinch of sugar','Pantry swap'],['Gochugaru','Kashmiri chilli powder','Same colour, milder'],['Anchovy stock','Vegetable stock','Veg-friendly']],
     tips:['Soak hard rice cakes in warm water so they don’t crack.','Kashmiri chilli gives colour without too much heat — add green chilli if you want it hotter.','Add paneer last so it stays soft.'] },
-  { id:'coconut-kimchi-jjigae', name:'Coconut Kimchi Jjigae', tag:'K-Fusion', img:'r2.jpg', hero:'r2.jpg', short:'A rich, tangy stew', drama:{title:'Itaewon Class', year:2020, scene:'Inspired by the bubbling jjigae pots at DanBam, Park Sae-ro-yi’s pub'},
+  { id:'coconut-kimchi-jjigae', name:'Coconut Kimchi Jjigae', tag:'K-Fusion', img:'r2.jpg', hero:'r2.jpg', short:'A rich, tangy stew', drama:{title:'Itaewon Class', year:2020, scene:'Inspired by the bubbling jjigae pots at DanBam, Park Sae-ro-yi’s pub', trailer:{id:'5ESbUBKO10Y', by:'JTBC Drama', dur:'0:52'}},
     desc:'Kimchi stew made creamy with coconut milk — cosy, tangy and easy to make on a weeknight.',
     time:'15 min', level:'Easy', spice:'Mild', likes:'980',
     ing:[['Kimchi',1,'cup','p6.jpg'],['Coconut milk',1,'cup','p2.jpg'],['Paneer',150,'g','p1.jpg'],['Vegetables',1,'cup','p7.jpg'],['Kashmiri chilli',1,'tsp','p4.jpg']],
     steps:[['Fry the kimchi','Fry chopped kimchi in a little oil for 3 minutes.','p6.jpg'],['Add liquid','Pour in coconut milk and 1 cup water; bring to a simmer.','p2.jpg'],['Add paneer & veg','Add paneer and vegetables; cook 6–8 minutes.','p7.jpg'],['Season & serve','Taste, add chilli or salt, and serve with rice.','r2.jpg']],
     subs:[['Pork belly','Paneer or mushrooms','Veg-friendly'],['Tofu','Paneer','Any grocery app'],['Gochugaru','Kashmiri chilli powder','Same colour, milder']],
     tips:['Older, sourer kimchi gives a deeper flavour.','Add a spoon of kimchi juice at the end for extra tang.'] },
-  { id:'spicy-paneer-ramen', name:'Spicy Paneer Ramen', tag:'K-Fusion', img:'r3.jpg', hero:'r3.jpg', short:'Korean flavour, Indian twist', drama:{title:'What’s Wrong with Secretary Kim', year:2018, scene:'“Want to eat ramyeon before you go?” — the line every K-drama fan knows'},
+  { id:'spicy-paneer-ramen', name:'Spicy Paneer Ramen', tag:'K-Fusion', img:'r3.jpg', hero:'r3.jpg', short:'Korean flavour, Indian twist', drama:{title:'What’s Wrong with Secretary Kim', year:2018, scene:'“Want to eat ramyeon before you go?” — the line every K-drama fan knows', trailer:{id:'EDGfWN36q5o', by:'CJ ENM', dur:'1:53'}},
     desc:'Korean instant ramen upgraded with paneer, egg and fresh vegetables.',
     time:'10 min', level:'Easy', spice:'Spicy', likes:'842',
     ing:[['Korean ramen',1,'pack','p8.jpg'],['Paneer',100,'g','p1.jpg'],['Vegetables',1,'cup','p7.jpg'],['Kimchi',0.5,'cup','p6.jpg']],
     steps:[['Boil water','Boil 550 ml water with the soup base.','p8.jpg'],['Cook noodles','Add noodles and vegetables; cook 3 minutes.','p7.jpg'],['Add paneer','Add paneer cubes for the last minute.','p1.jpg'],['Serve','Top with kimchi and spring onion.','r3.jpg']],
     subs:[['Fish cake','Paneer','Any grocery app'],['Korean leek','Spring onion','Any grocery app']],
     tips:['Use a little less water for a richer soup.','Crack in an egg in the last minute if you like.'] },
-  { id:'kimbap-indian-style', name:'Kimbap (Indian Style)', tag:'Indian Style', img:'r4.jpg', hero:'r4.jpg', short:'Fresh veggies & local spices', drama:{title:'Extraordinary Attorney Woo', year:2022, scene:'Woo Young-woo’s kimbap breakfast, every single morning (Ep. 1)'},
+  { id:'kimbap-indian-style', name:'Kimbap (Indian Style)', tag:'Indian Style', img:'r4.jpg', hero:'r4.jpg', short:'Fresh veggies & local spices', drama:{title:'Extraordinary Attorney Woo', year:2022, scene:'Woo Young-woo’s kimbap breakfast, every single morning (Ep. 1)', trailer:{id:'HmQcFU2NLKc', by:'Netflix', dur:'1:15'}},
     desc:'Seaweed rice rolls filled with crunchy vegetables and spiced paneer — great for lunch boxes.',
     time:'20 min', level:'Medium', spice:'Not spicy', likes:'765',
     ing:[['Rice',2,'cups','p5.jpg'],['Paneer',150,'g','p1.jpg'],['Vegetables',1,'cup','p7.jpg'],['Indian spices',1,'tsp','p4.jpg']],
@@ -671,7 +679,8 @@ function recipeCard(r){
     <div class="body"><strong>${esc(r.name)}</strong><span class="muted" style="font-size:14px">${esc(r.short)}</span>${r.drama ? `<span class="drama-line"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="m8 3 4 4 4-4"/></svg><span>Seen in <b>${esc(r.drama.title)}</b></span></span>` : ''}<span class="meta">${r.time} · ${r.level} · ♥ ${r.likes}${r.video ? ' · ▶ Video' : ''}</span></div></a>`;
 }
 $('#homeRecipes').innerHTML = recipes.map(recipeCard).join('');
-$('#homeDrama').innerHTML = recipes.filter(r => r.drama).map(r => `<a class="drama-card" href="#recipe/${r.id}"><span class="drama-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="m8 3 4 4 4-4"/></svg> ${esc(r.drama.title)} · ${r.drama.year}</span><p class="drama-scene">${esc(r.drama.scene)}</p><span class="drama-cta">Cook it: <b>${esc(r.name)}</b> →</span></a>`).join('');
+$('#homeDrama').innerHTML = recipes.filter(r => r.drama).map(r => `<article class="drama-card">${r.drama.trailer ? `<div class="drama-vid"><button type="button" class="drama-play" data-yt="${r.drama.trailer.id}" data-title="${esc(r.drama.title)} official trailer" aria-label="Play the official trailer of ${esc(r.drama.title)}"><img src="https://i.ytimg.com/vi/${r.drama.trailer.id}/hqdefault.jpg" alt="" loading="lazy"><span class="drama-playic"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span class="drama-src">Official trailer · ${esc(r.drama.trailer.by)} · ${r.drama.trailer.dur}</span></button></div>` : ''}<div class="drama-body"><span class="drama-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="m8 3 4 4 4-4"/></svg> ${esc(r.drama.title)} · ${r.drama.year}</span><p class="drama-scene">${esc(r.drama.scene)}</p><a class="drama-cta" href="#recipe/${r.id}">Cook it: <b>${esc(r.name)}</b> →</a></div></article>`).join('');
+$('#homeDrama').addEventListener('click', e => { const b = e.target.closest('.drama-play'); if (!b) return; const f = document.createElement('iframe'); f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0'; f.title = b.dataset.title; f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'; f.allowFullscreen = true; b.replaceWith(f); });
 
 /* ---------- recipe detail ---------- */
 const fmtQty = (q, unit, serv) => { let v = q * serv / 2; v = v >= 10 ? Math.round(v / 10) * 10 : Math.round(v * 4) / 4; const f = {0.25:'¼',0.5:'½',0.75:'¾'}; const w = Math.floor(v), fr = v - w; return (w ? w : '') + (f[fr] || (fr ? fr : '')) + (w || fr ? '' : '0') + ' ' + unit; };
