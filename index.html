@@ -195,6 +195,96 @@ a.drama-cta{text-decoration:none}a.drama-cta:hover{color:#fff}
 .post-actions button{background:none;border:none;font-size:14px;font-weight:700;color:var(--muted);min-height:44px;padding:0 4px;display:flex;align-items:center;gap:6px}
 .post-actions button[aria-pressed="true"]{color:var(--orange-text)}
 .compose{padding:22px;display:none;flex-direction:column;gap:12px}
+.write-layout{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;margin-top:24px}
+.write-form{flex:999 1 600px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.write-side{flex:1 1 300px;min-width:0}
+.side-sticky{position:sticky;top:96px;display:flex;flex-direction:column;gap:12px}
+.fs{border:1px solid var(--line);padding:22px 24px;margin:0;min-width:0;display:flex;flex-direction:column;gap:16px}
+.fs-title{font-size:18px;font-weight:800;padding:0;display:flex;align-items:center;gap:10px;float:left;width:100%;margin-bottom:4px}
+.fs-title+*{clear:both}
+.fs-num{width:28px;height:28px;border-radius:50%;background:var(--orange-soft);color:var(--orange-text);display:inline-flex;align-items:center;justify-content:center;font-size:14px}
+.type-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.type-card{position:relative;border:2px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:4px;cursor:pointer;background:#fff;font-size:13px;color:var(--muted)}
+.type-card strong{font-size:15px;color:var(--text)}
+.type-card em{font-style:normal;font-size:12px;font-weight:800;color:var(--teal-text)}
+.type-card input{position:absolute;opacity:0;pointer-events:none}
+.type-card:has(input:checked){border-color:var(--orange);background:#FFF7F2}
+.type-card:has(input:focus-visible){outline:3px solid var(--teal);outline-offset:2px}
+.type-ic{width:36px;height:36px;border-radius:10px;background:var(--orange-soft);color:var(--orange-text);display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0;position:relative}
+.field label,.flabel{font-size:14px;font-weight:700;color:var(--text)}
+.field input:not([type=radio]):not([type=checkbox]):not([type=file]),.field select,.field textarea{border:1.5px solid var(--line-2);border-radius:12px;padding:11px 14px;background:#fff;font-size:15px;min-height:46px;width:100%}
+.field textarea{resize:vertical;min-height:110px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(42,114,113,.15)}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:#B3261E}
+.ferr{font-size:13px;color:#B3261E;font-weight:600}
+.hint{position:absolute;right:4px;top:2px;font-size:12px;color:var(--muted)}
+.req{color:var(--orange-text)}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.row4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.seg-pills{display:flex;gap:8px;flex-wrap:wrap}
+.seg-pills label{cursor:pointer}
+.seg-pills input{position:absolute;opacity:0}
+.seg-pills span{display:inline-flex;align-items:center;min-height:42px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line-2);font-weight:700;font-size:14px;background:#fff}
+.seg-pills input:checked+span{background:var(--teal);border-color:var(--teal);color:#fff}
+.seg-pills input:focus-visible+span{outline:3px solid var(--teal);outline-offset:2px}
+.rep{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.rep-head,.ing-row{display:grid;grid-template-columns:2fr 1fr 1.6fr 44px;gap:8px;align-items:center}
+.rep-head{font-size:12px;font-weight:700;color:var(--muted);padding:0 2px}
+.ing-row input,.step-row textarea{border:1.5px solid var(--line-2);border-radius:10px;padding:9px 12px;font-size:14px;background:#fff;min-height:42px;width:100%}
+.step-row{display:grid;grid-template-columns:32px 1fr 44px;gap:8px;align-items:start}
+.step-row .sn{width:32px;height:32px;border-radius:50%;background:var(--orange-soft);color:var(--orange-text);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:5px}
+.step-row textarea{min-height:44px;resize:vertical}
+.rm{width:44px;height:42px;border:none;background:transparent;border-radius:10px;color:var(--muted);font-size:20px}
+.rm:hover{background:#FBE9E7;color:#B3261E}
+.add-row{align-self:flex-start;background:none;border:1.5px dashed var(--line-2);border-radius:999px;padding:0 16px;min-height:40px;font-weight:700;font-size:14px;color:var(--teal-text)}
+.add-row:hover{border-color:var(--teal)}
+.stars{display:flex;gap:2px;flex-direction:row}
+.stars label{cursor:pointer;font-size:28px;line-height:1;color:#D9CBB9}
+.stars input{position:absolute;opacity:0}
+.stars label:has(~ label input:checked),.stars label:has(input:checked){color:var(--star)}
+.stars:hover label{color:var(--star)}
+.stars label:hover ~ label{color:#D9CBB9}
+.stars input:focus-visible+span{outline:2px solid var(--teal);border-radius:4px}
+.drop{border:2px dashed var(--line-2);border-radius:16px;min-height:150px;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;background:var(--bg);overflow:hidden;position:relative}
+.drop.over{border-color:var(--teal);background:var(--teal-soft)}
+.drop #dropTxt{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--muted);font-size:13px;padding:20px}
+.drop #dropTxt b{color:var(--text);font-size:15px}
+.drop img{width:100%;max-height:320px;object-fit:cover}
+.link-btn{background:none;border:none;color:#B3261E;font-weight:700;font-size:13px;align-self:flex-start;padding:4px 0}
+.tag-pick{display:flex;gap:8px;flex-wrap:wrap}
+.tag-pick button{min-height:38px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line-2);background:#fff;font-size:13px;font-weight:700;color:var(--teal-text)}
+.tag-pick button[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--teal)}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer;line-height:1.5}
+.check input{width:20px;height:20px;margin-top:1px;accent-color:var(--teal);flex:none}
+.form-actions{display:flex;gap:10px;align-items:center;justify-content:flex-end;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:16px}
+.draft-note{font-size:12px;margin-right:auto}
+.err-summary{border:2px solid #B3261E;background:#FDECEA;border-radius:16px;padding:14px 18px;color:#8C1D18;font-size:14px}
+.err-summary ul{margin:6px 0 0;padding-left:18px}
+.err-summary a{color:#8C1D18}
+.rules ul{margin:0;padding-left:18px;font-size:14px;color:var(--muted-2);display:flex;flex-direction:column;gap:6px}
+.p-badges{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+.p-badges span{font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--muted-2)}
+.p-badges .veg{color:#2E7D32;border-color:#A5D6A7;background:#F1F8E9}
+.p-badges .nonveg{color:#B3261E;border-color:#F4B4AE;background:#FDECEA}
+.p-drama{font-size:13px;color:var(--orange-text);display:flex;gap:6px;align-items:flex-start}
+.p-more{margin-top:10px;border-top:1px dashed var(--line);padding-top:10px;font-size:14px;color:var(--muted-2);display:flex;flex-direction:column;gap:8px}
+.p-more table{border-collapse:collapse;width:100%;font-size:13px}
+.p-more th,.p-more td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
+.p-more th{color:var(--muted);font-weight:700}
+.p-more ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.p-kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13px}
+.p-kv dt{color:var(--muted);font-weight:700}.p-kv dd{margin:0}
+.post .thumb.big{width:160px;height:120px}
+.new-flash{animation:flash 1.6s ease-out}
+@keyframes flash{from{box-shadow:0 0 0 4px var(--orange)}to{box-shadow:0 0 0 0 transparent}}
+[hidden]{display:none!important}
+.write-side .post{flex-direction:column;gap:12px}
+.write-side .post .avatar{display:none}
+.write-side .post .thumb{width:100%;height:170px;order:-1}
+.write-side .p-more table{font-size:12px}
+@media (max-width:1000px){.type-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.side-sticky{position:static}}
+@media (max-width:640px){.row2{grid-template-columns:1fr}.row4{grid-template-columns:repeat(2,minmax(0,1fr))}.rep-head{display:none}.ing-row{grid-template-columns:1fr 1fr 44px}.ing-row .swap-in{grid-column:1/3}.ing-row .rm{grid-row:1/3;grid-column:3}.fs{padding:18px}}
 .compose.open{display:flex}
 .compose label{font-size:14px;font-weight:700;display:flex;flex-direction:column;gap:6px}
 .compose input,.compose select,.compose textarea{border:1.5px solid var(--line-2);border-radius:12px;padding:10px 14px;background:#fff;font-size:15px}
@@ -469,20 +559,10 @@ footer strong{color:#fff}
   <div class="wrap">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
       <div><h1 class="page-title">Community</h1><p class="page-sub">Share your recipes, get tips and connect with other K-food lovers.</p></div>
-      <button type="button" class="btn btn-primary" id="writeBtn" aria-expanded="false" aria-controls="compose">✎ Write a post</button>
+      <a class="btn btn-primary" id="writeBtn" href="#write">✎ Write a post</a>
     </div>
     <div class="two-col">
       <div class="main">
-        <form class="card compose" id="compose">
-          <h2 style="font-size:20px;font-weight:800">New post</h2>
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
-            <label style="flex:1 1 200px">Your name<input id="cName" required maxlength="30"></label>
-            <label style="flex:1 1 160px">Category<select id="cCat"><option>Recipes</option><option>Tips</option><option>Q&amp;A</option></select></label>
-          </div>
-          <label>Title<input id="cTitle" required maxlength="80"></label>
-          <label>Your story<textarea id="cBody" required maxlength="600"></textarea></label>
-          <div style="display:flex;gap:10px;justify-content:flex-end"><button type="button" class="btn btn-outline btn-sm" id="cancelPost">Cancel</button><button type="submit" class="btn btn-primary btn-sm">Post (+50 pts)</button></div>
-        </form>
         <div class="points"><span style="font-size:14px;color:#E3EFEE">My points · Post a recipe +50 · Like a post +2</span><strong id="pts">0 pts</strong></div>
         <div role="group" aria-label="Filter posts" id="postCats" style="display:flex;gap:10px;flex-wrap:wrap"></div>
         <div id="posts" style="display:flex;flex-direction:column;gap:16px"></div>
@@ -503,6 +583,150 @@ footer strong{color:#fff}
           <span class="muted" style="font-size:14px">Post a recipe · +50</span>
           <span class="muted" style="font-size:14px">Like a post · +2</span>
           <span class="muted" style="font-size:12px">Points are saved on this device for the pilot.</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- WRITE A POST -->
+<section class="view" id="view-write" aria-label="Write a post">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="#community">Community</a><span aria-hidden="true">/</span><strong style="color:var(--text)">Write a post</strong></nav>
+    <h1 class="page-title">Share with the community</h1>
+    <p class="page-sub">Your version of a Korean dish, a local swap that worked, or where you found an ingredient in Chennai — it helps the next person cook.</p>
+
+    <div class="write-layout">
+      <form class="write-form" id="writeForm" novalidate>
+        <div class="err-summary" id="errSummary" role="alert" tabindex="-1" hidden></div>
+
+        <fieldset class="card fs">
+          <legend class="fs-title"><span class="fs-num">1</span>What are you sharing?</legend>
+          <div class="type-grid" id="typeGrid">
+            <label class="type-card"><input type="radio" name="ptype" value="recipe" checked><span class="type-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2"/><path d="M8 7h6"/></svg></span><strong>My recipe</strong><span>Your take on a Korean dish</span><em>+50 pts</em></label>
+            <label class="type-card"><input type="radio" name="ptype" value="swap"><span class="type-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7h11l-3-3"/><path d="M17 17H6l3 3"/></svg></span><strong>Local swap tip</strong><span>A local ingredient that works</span><em>+20 pts</em></label>
+            <label class="type-card"><input type="radio" name="ptype" value="buy"><span class="type-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><strong>Where to buy</strong><span>A store, app and price you checked</span><em>+20 pts</em></label>
+            <label class="type-card"><input type="radio" name="ptype" value="question"><span class="type-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><path d="M12 17.5h.01"/></svg></span><strong>Question</strong><span>Ask other home cooks</span><em>+10 pts</em></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="card fs">
+          <legend class="fs-title"><span class="fs-num">2</span>About you</legend>
+          <div class="row2">
+            <div class="field"><label for="wName">Display name <b class="req">*</b></label><input id="wName" maxlength="30" autocomplete="nickname" placeholder="e.g. Priya" data-req="Add a display name."></div>
+            <div class="field"><label for="wArea">Your area</label><select id="wArea"><option value="">Choose an area</option><option>Adyar</option><option>Anna Nagar</option><option>Besant Nagar</option><option>Mylapore</option><option>Nungambakkam</option><option>R.A. Puram</option><option>T. Nagar</option><option>Velachery</option><option>OMR</option><option>Other Chennai</option><option>Bengaluru</option><option>Outside Chennai</option></select></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="card fs">
+          <legend class="fs-title"><span class="fs-num">3</span>Your post</legend>
+          <div class="field"><label for="wTitle">Title <b class="req">*</b></label><input id="wTitle" maxlength="80" placeholder="e.g. Paneer tteokbokki with Kashmiri chilli" data-req="Add a title."><span class="hint"><span id="titleCount">0</span>/80</span></div>
+
+          <!-- recipe -->
+          <div class="tsec" data-for="recipe">
+            <div class="row2">
+              <div class="field"><label for="wDish">Dish</label><select id="wDish"></select></div>
+              <div class="field"><label for="wDrama">Seen in a K-drama?</label><select id="wDrama"><option value="">No / not sure</option><option>Good Partner</option><option>Itaewon Class</option><option>What’s Wrong with Secretary Kim</option><option>Extraordinary Attorney Woo</option><option>Crash Landing on You</option><option>Other drama</option></select></div>
+            </div>
+            <div class="field" id="sceneField" hidden><label for="wScene">Which scene? <span class="muted">(describe it in words — no screenshots)</span></label><input id="wScene" maxlength="120" placeholder="e.g. The late-night tteokbokki in episode 3"></div>
+            <div class="row4">
+              <div class="field"><label for="wTime">Time (min)</label><input id="wTime" type="number" min="1" max="240" inputmode="numeric" placeholder="15"></div>
+              <div class="field"><label for="wServes">Serves</label><input id="wServes" type="number" min="1" max="12" inputmode="numeric" placeholder="2"></div>
+              <div class="field"><label for="wLevel">Level</label><select id="wLevel"><option>Easy</option><option>Medium</option><option>Hard</option></select></div>
+              <div class="field"><label for="wSpice">Spice</label><select id="wSpice"><option>Not spicy</option><option selected>Mild</option><option>Medium</option><option>Hot</option></select></div>
+            </div>
+            <div class="field"><span class="flabel" id="dietLbl">Diet</span>
+              <div class="seg-pills" role="radiogroup" aria-labelledby="dietLbl"><label><input type="radio" name="wDiet" value="Veg" checked><span>Veg</span></label><label><input type="radio" name="wDiet" value="Egg"><span>Egg</span></label><label><input type="radio" name="wDiet" value="Non-veg"><span>Non-veg</span></label></div>
+            </div>
+            <div class="field"><span class="flabel">Ingredients <b class="req">*</b> <span class="muted">— mark any local swaps</span></span>
+              <div class="rep-head" aria-hidden="true"><span>Ingredient</span><span>Amount</span><span>Replaces (Korean)</span><span></span></div>
+              <div id="ingRows" class="rep"></div>
+              <button type="button" class="add-row" id="addIng">+ Add ingredient</button>
+            </div>
+            <div class="field"><span class="flabel">Steps <b class="req">*</b></span>
+              <ol id="stepRows" class="rep steps-rep"></ol>
+              <button type="button" class="add-row" id="addStep">+ Add step</button>
+            </div>
+          </div>
+
+          <!-- swap -->
+          <div class="tsec" data-for="swap" hidden>
+            <div class="row2">
+              <div class="field"><label for="sKorean">Korean ingredient <b class="req">*</b></label><input id="sKorean" maxlength="60" list="koreanList" placeholder="e.g. Gochujang" data-req="Which Korean ingredient did you replace?"></div>
+              <div class="field"><label for="sLocal">Local swap <b class="req">*</b></label><input id="sLocal" maxlength="80" placeholder="e.g. Tomato paste + Kashmiri chilli + jaggery" data-req="What did you use instead?"></div>
+            </div>
+            <div class="field"><label for="sHow">How to use it</label><input id="sHow" maxlength="140" placeholder="e.g. 2 tbsp tomato paste + 1 tsp chilli for 1 tbsp gochujang"></div>
+            <div class="row2">
+              <div class="field"><label for="sDish">Tried it in</label><input id="sDish" maxlength="60" placeholder="e.g. Tteokbokki"></div>
+              <div class="field"><span class="flabel" id="rateLbl">How close to the real taste?</span>
+                <div class="stars" role="radiogroup" aria-labelledby="rateLbl">
+                  <label><input type="radio" name="sRate" value="1"><span aria-hidden="true">★</span><span class="sr">1 of 5</span></label><label><input type="radio" name="sRate" value="2"><span aria-hidden="true">★</span><span class="sr">2 of 5</span></label><label><input type="radio" name="sRate" value="3"><span aria-hidden="true">★</span><span class="sr">3 of 5</span></label><label><input type="radio" name="sRate" value="4" checked><span aria-hidden="true">★</span><span class="sr">4 of 5</span></label><label><input type="radio" name="sRate" value="5"><span aria-hidden="true">★</span><span class="sr">5 of 5</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- where to buy -->
+          <div class="tsec" data-for="buy" hidden>
+            <div class="row2">
+              <div class="field"><label for="bItem">Item <b class="req">*</b></label><input id="bItem" maxlength="60" list="koreanList" placeholder="e.g. Rice cakes (tteok)" data-req="Which item did you find?"></div>
+              <div class="field"><label for="bStore">Where <b class="req">*</b></label><select id="bStore" data-req="Choose where you found it."><option value="">Choose a store or app</option><optgroup label="Apps"><option>Blinkit</option><option>Zepto</option><option>BigBasket</option><option>Swiggy Instamart</option><option>Amazon.in</option></optgroup><optgroup label="Stores"><option>Korean mart</option><option>Local supermarket</option><option>Other store</option></optgroup></select></div>
+            </div>
+            <div class="field" id="bStoreNameF" hidden><label for="bStoreName">Store name &amp; area</label><input id="bStoreName" maxlength="80" placeholder="e.g. Seoul Store, Nungambakkam"></div>
+            <div class="row4">
+              <div class="field"><label for="bPrice">Price (₹)</label><input id="bPrice" type="number" min="0" inputmode="numeric" placeholder="160"></div>
+              <div class="field"><label for="bPack">Pack size</label><input id="bPack" maxlength="20" placeholder="500 g"></div>
+              <div class="field"><label for="bDate">Checked on</label><input id="bDate" type="date"></div>
+              <div class="field"><label for="bStock">Stock</label><select id="bStock"><option>In stock</option><option>Limited</option><option>Out of stock</option></select></div>
+            </div>
+          </div>
+
+          <!-- question -->
+          <div class="tsec" data-for="question" hidden>
+            <div class="field"><label for="qRelated">About a recipe?</label><select id="qRelated"></select></div>
+          </div>
+
+          <div class="field"><label for="wBody" id="bodyLbl">Your story <b class="req">*</b></label><textarea id="wBody" maxlength="800" rows="4" placeholder="What worked, what you’d change, how your family liked it…" data-req="Write a few lines."></textarea><span class="hint"><span id="bodyCount">0</span>/800</span></div>
+        </fieldset>
+
+        <fieldset class="card fs">
+          <legend class="fs-title"><span class="fs-num">4</span>Photo &amp; tags</legend>
+          <div class="field">
+            <span class="flabel">Photo <span class="muted">(optional · your own photo only)</span></span>
+            <label class="drop" id="drop"><input type="file" id="wPhoto" accept="image/*" class="sr"><span id="dropTxt"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><b>Add a photo</b><span class="muted">Tap to choose or drop an image here</span></span><img id="photoPrev" alt="" hidden></label>
+            <button type="button" class="link-btn" id="photoRemove" hidden>Remove photo</button>
+          </div>
+          <div class="field"><span class="flabel" id="tagLbl">Tags <span class="muted">(up to 3)</span></span>
+            <div class="tag-pick" id="tagPick" role="group" aria-labelledby="tagLbl"></div>
+          </div>
+        </fieldset>
+
+        <div class="card fs">
+          <label class="check"><input type="checkbox" id="wOwn"><span>This is my own recipe, tip and photo (not copied from another site, app or a drama screenshot).</span></label>
+          <label class="check"><input type="checkbox" id="wRules" data-req="Please agree to the community guidelines."><span>I agree to the <a href="#write" id="rulesLink">community guidelines</a> <b class="req">*</b></span></label>
+          <div class="form-actions">
+            <span class="muted draft-note" id="draftNote" aria-live="polite"></span>
+            <a class="btn btn-outline btn-sm" href="#community">Cancel</a>
+            <button type="submit" class="btn btn-primary" id="postBtn">Post (+50 pts)</button>
+          </div>
+        </div>
+        <datalist id="koreanList"><option>Gochujang</option><option>Gochugaru</option><option>Doenjang</option><option>Rice cakes (tteok)</option><option>Fish cake (eomuk)</option><option>Kimchi</option><option>Sesame oil</option><option>Korean ramen</option><option>Seaweed (gim)</option><option>Anchovy stock</option><option>Short-grain rice</option></datalist>
+      </form>
+
+      <aside class="write-side">
+        <div class="side-sticky">
+          <span class="eyebrow">LIVE PREVIEW</span>
+          <div id="livePrev"></div>
+          <div class="card side-box rules" id="rules">
+            <strong>Community guidelines</strong>
+            <ul>
+              <li>Share what you cooked or checked yourself.</li>
+              <li>Use your own photos. Describe drama scenes in words — no screenshots.</li>
+              <li>Prices: add the date you checked, they change fast.</li>
+              <li>Mark Veg / Egg / Non-veg so everyone can cook along.</li>
+              <li>Be kind — every cook is learning.</li>
+            </ul>
+          </div>
         </div>
       </aside>
     </div>
@@ -656,7 +880,7 @@ const seedPosts = [
 ];
 
 /* ---------- routing ---------- */
-const views = ['home','recipes','shop','community','restaurants','membership'];
+const views = ['home','recipes','shop','community','restaurants','membership','write'];
 let cur = { recipe: recipes[0].id, tab: 'steps', serv: 2 };
 function route(){
   const parts = (location.hash || '#home').slice(1).split('/');
@@ -665,10 +889,11 @@ function route(){
   if (v === 'video') return; // in-page anchor
   if (!views.includes(v)) v = 'home';
   views.forEach(x => $('#view-' + x).classList.toggle('active', x === v));
-  document.querySelectorAll('[data-nav]').forEach(a => { if (a.dataset.nav === v) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  document.querySelectorAll('[data-nav]').forEach(a => { if (a.dataset.nav === (v === 'write' ? 'community' : v)) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  if (v === 'write') initWrite();
   if (v === 'recipes') renderRecipe();
   window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
-  document.title = (v === 'home' ? 'K-Indian Bite — Korean Food, Now Closer in India' : v[0].toUpperCase() + v.slice(1) + ' · K-Indian Bite');
+  document.title = (v === 'home' ? 'K-Indian Bite — Korean Food, Now Closer in India' : v === 'write' ? 'Write a post · K-Indian Bite' : v[0].toUpperCase() + v.slice(1) + ' · K-Indian Bite');
 }
 window.addEventListener('hashchange', route);
 
@@ -767,19 +992,45 @@ $('#shopSearch').addEventListener('input', renderShop);
 /* ---------- community ---------- */
 let postCat = 'All';
 const getPosts = () => store.get('posts', []).concat(seedPosts);
+const TV_ICON = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="m8 3 4 4 4-4"/></svg>';
+function postDetails(p){
+  const d = p.d; if (!d) return '';
+  if (p.type === 'recipe') return `${d.ings && d.ings.length ? `<table><thead><tr><th>Ingredient</th><th>Amount</th><th>Replaces</th></tr></thead><tbody>${d.ings.map(i => `<tr><td>${esc(i.n)}</td><td>${esc(i.a || '')}</td><td>${i.k ? '<span class="pill">' + esc(i.k) + '</span>' : ''}</td></tr>`).join('')}</tbody></table>` : ''}${d.steps && d.steps.length ? `<ol>${d.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}`;
+  if (p.type === 'swap') return `<dl class="p-kv"><dt>Instead of</dt><dd><b>${esc(d.korean)}</b></dd><dt>Use</dt><dd><b>${esc(d.local)}</b></dd>${d.how ? `<dt>How</dt><dd>${esc(d.how)}</dd>` : ''}${d.dish ? `<dt>Tried in</dt><dd>${esc(d.dish)}</dd>` : ''}<dt>Taste match</dt><dd><span class="star">${'★'.repeat(d.rate)}</span>${'☆'.repeat(5 - d.rate)}</dd></dl>`;
+  if (p.type === 'buy') return `<dl class="p-kv"><dt>Item</dt><dd><b>${esc(d.item)}</b></dd><dt>Where</dt><dd>${esc(d.store)}${d.storeName ? ' — ' + esc(d.storeName) : ''}</dd>${d.price ? `<dt>Price</dt><dd>₹${esc(d.price)}${d.pack ? ' / ' + esc(d.pack) : ''}</dd>` : ''}<dt>Stock</dt><dd>${esc(d.stock)}${d.date ? ' · checked ' + esc(d.date) : ''}</dd></dl>`;
+  return '';
+}
+function postBadges(p){
+  const d = p.d || {}, b = [];
+  if (p.type === 'recipe') { if (d.time) b.push(`⏱ ${esc(d.time)} min`); b.push(esc(d.level || 'Easy')); if (d.serves) b.push(`Serves ${esc(d.serves)}`); if (d.spice) b.push(esc(d.spice)); }
+  if (p.type === 'buy' && d.price) b.push(`₹${esc(d.price)}`);
+  if (p.area) b.push(esc(p.area));
+  const diet = d.diet ? `<span class="${d.diet === 'Non-veg' ? 'nonveg' : 'veg'}">${esc(d.diet)}</span>` : '';
+  const tags = (p.tags || []).map(t => `<span>${esc(t)}</span>`).join('');
+  return (b.length || diet || tags) ? `<div class="p-badges">${diet}${b.map(x => `<span>${x}</span>`).join('')}${tags}</div>` : '';
+}
+function postCard(p, liked, preview){
+  const img = p.photo ? `<img class="thumb big" src="${p.photo}" alt="${esc(p.title)}">` : (p.img ? `<img class="thumb" src="${IMG}${p.img}" alt="" loading="lazy">` : '');
+  const more = postDetails(p);
+  return `<article class="card post" id="post-${p.id}">
+    <span class="avatar" style="background:${p.bg || '#FCE9DF'}" aria-hidden="true">${esc((p.author || '?')[0])}</span>
+    <div style="flex:1;min-width:0">
+      <div class="muted" style="font-size:13px"><strong style="color:var(--text);font-size:15px">${esc(p.author || 'Your name')}</strong> · ${esc(p.when)} · <span style="color:var(--teal-text);font-weight:700">${esc(p.cat)}</span></div>
+      <h3>${esc(p.title || 'Your title')}</h3>
+      ${p.d && p.d.drama ? `<div class="p-drama">${TV_ICON}<span>Seen in <b>${esc(p.d.drama)}</b>${p.d.scene ? ' — ' + esc(p.d.scene) : ''}</span></div>` : ''}
+      ${postBadges(p)}
+      <p>${esc(p.body || '')}</p>
+      ${more ? (preview ? `<div class="p-more">${more}</div>` : `<details class="p-more-wrap"><summary class="muted" style="font-size:14px;font-weight:700;cursor:pointer;margin-top:8px">View ${p.type === 'recipe' ? 'ingredients &amp; steps' : 'details'}</summary><div class="p-more">${more}</div></details>`) : ''}
+      ${preview ? '' : `<div class="post-actions"><button type="button" data-like="${p.id}" aria-pressed="${!!liked[p.id]}">♥ ${p.likes + (liked[p.id] ? 1 : 0)}</button>
+      <span class="muted" style="font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12Z"/></svg>${p.comments}</span></div>`}
+    </div>${img}</article>`;
+}
 function renderPosts(){
   $('#pts').textContent = store.get('points', 0).toLocaleString('en-IN') + ' pts';
-  $('#postCats').innerHTML = ['All','Recipes','Tips','Q&A','My posts'].map(c => `<button type="button" class="chip" data-pcat="${esc(c)}" aria-pressed="${c === postCat}">${esc(c)}</button>`).join('');
+  $('#postCats').innerHTML = ['All','Recipes','Tips','Where to buy','Q&A','My posts'].map(c => `<button type="button" class="chip" data-pcat="${esc(c)}" aria-pressed="${c === postCat}">${esc(c)}</button>`).join('');
   const liked = store.get('liked', {});
   const list = getPosts().filter(p => postCat === 'All' || (postCat === 'My posts' ? p.mine : p.cat === postCat));
-  $('#posts').innerHTML = list.map(p => `<article class="card post">
-    <span class="avatar" style="background:${p.bg}" aria-hidden="true">${esc(p.author[0] || '?')}</span>
-    <div style="flex:1;min-width:0">
-      <div class="muted" style="font-size:13px"><strong style="color:var(--text);font-size:15px">${esc(p.author)}</strong> · ${esc(p.when)} · <span style="color:var(--teal-text);font-weight:700">${esc(p.cat)}</span></div>
-      <h3>${esc(p.title)}</h3><p>${esc(p.body)}</p>
-      <div class="post-actions"><button type="button" data-like="${p.id}" aria-pressed="${!!liked[p.id]}">♥ ${p.likes + (liked[p.id] ? 1 : 0)}</button>
-      <span class="muted" style="font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12Z"/></svg>${p.comments}</span></div>
-    </div>${p.img ? `<img class="thumb" src="${IMG}${p.img}" alt="" loading="lazy">` : ''}</article>`).join('') || '<p class="card empty">No posts here yet — be the first!</p>';
+  $('#posts').innerHTML = list.map(p => postCard(p, liked, false)).join('') || '<p class="card empty">No posts here yet — <a href="#write">be the first!</a></p>';
 }
 $('#postCats').addEventListener('click', e => { const b = e.target.closest('[data-pcat]'); if (b) { postCat = b.dataset.pcat; renderPosts(); } });
 $('#posts').addEventListener('click', e => {
@@ -787,16 +1038,111 @@ $('#posts').addEventListener('click', e => {
   const liked = store.get('liked', {}); const id = b.dataset.like; liked[id] = !liked[id]; store.set('liked', liked);
   store.set('points', Math.max(0, store.get('points', 0) + (liked[id] ? 2 : -2))); renderPosts();
 });
-const openCompose = open => { $('#compose').classList.toggle('open', open); $('#writeBtn').setAttribute('aria-expanded', open); if (open) $('#cName').focus(); };
-$('#writeBtn').onclick = () => openCompose(!$('#compose').classList.contains('open'));
-$('#cancelPost').onclick = () => openCompose(false);
-$('#compose').addEventListener('submit', e => {
+
+/* ---------- write a post ---------- */
+const PTYPES = { recipe:{cat:'Recipes', pts:50, body:'Your story'}, swap:{cat:'Tips', pts:20, body:'Tell us more'}, buy:{cat:'Where to buy', pts:20, body:'Anything else to know?'}, question:{cat:'Q&A', pts:10, body:'Your question'} };
+const TAGS = ['#PaneerTteokbokki','#LocalSwap','#VegKimchi','#ChennaiEats','#UnderTwentyMin','#KDramaFood','#5Ingredients'];
+let wState = { photo:'', tags:[] }, writeReady = false, draftT;
+const wType = () => (document.querySelector('input[name="ptype"]:checked') || {}).value || 'recipe';
+function ingRow(v = {}){ const r = document.createElement('div'); r.className = 'ing-row'; r.innerHTML = `<input aria-label="Ingredient" maxlength="40" placeholder="e.g. Paneer" value="${esc(v.n || '')}" class="i-n"><input aria-label="Amount" maxlength="20" placeholder="200 g" value="${esc(v.a || '')}" class="i-a"><input aria-label="Replaces Korean ingredient (optional)" list="koreanList" maxlength="40" placeholder="e.g. Fish cake" value="${esc(v.k || '')}" class="i-k swap-in"><button type="button" class="rm" aria-label="Remove ingredient">×</button>`; return r; }
+function stepRow(v = ''){ const r = document.createElement('li'); r.className = 'step-row'; r.innerHTML = `<span class="sn" aria-hidden="true"></span><textarea aria-label="Step" maxlength="240" rows="2" placeholder="Describe this step">${esc(v)}</textarea><button type="button" class="rm" aria-label="Remove step">×</button>`; return r; }
+function numberSteps(){ [...$('#stepRows').children].forEach((li, i) => { li.querySelector('.sn').textContent = i + 1; li.querySelector('textarea').setAttribute('aria-label', 'Step ' + (i + 1)); }); }
+function collect(){
+  const t = wType(), val = id => ($('#' + id).value || '').trim();
+  const p = { type:t, cat:PTYPES[t].cat, author:val('wName'), area:val('wArea'), title:val('wTitle'), body:val('wBody'), tags:wState.tags.slice(), photo:wState.photo, when:'Just now', bg:'#FCE9DF', likes:0, comments:0, d:{} };
+  if (t === 'recipe') {
+    const drama = val('wDrama');
+    p.d = { dish:val('wDish'), drama, scene: drama ? val('wScene') : '', time:val('wTime'), serves:val('wServes'), level:val('wLevel'), spice:val('wSpice'), diet:(document.querySelector('input[name="wDiet"]:checked') || {}).value,
+      ings:[...document.querySelectorAll('#ingRows .ing-row')].map(r => ({ n:r.querySelector('.i-n').value.trim(), a:r.querySelector('.i-a').value.trim(), k:r.querySelector('.i-k').value.trim() })).filter(i => i.n),
+      steps:[...document.querySelectorAll('#stepRows textarea')].map(x => x.value.trim()).filter(Boolean) };
+  } else if (t === 'swap') p.d = { korean:val('sKorean'), local:val('sLocal'), how:val('sHow'), dish:val('sDish'), rate:+((document.querySelector('input[name="sRate"]:checked') || {}).value || 4) };
+  else if (t === 'buy') p.d = { item:val('bItem'), store:val('bStore'), storeName:val('bStoreName'), price:val('bPrice'), pack:val('bPack'), date:val('bDate'), stock:val('bStock') };
+  else p.d = { related:val('qRelated') };
+  return p;
+}
+function setType(){
+  const t = wType();
+  document.querySelectorAll('.tsec').forEach(s => s.hidden = s.dataset.for !== t);
+  $('#bodyLbl').firstChild.textContent = PTYPES[t].body + ' ';
+  $('#postBtn').textContent = `Post (+${PTYPES[t].pts} pts)`;
+  $('#wBody').placeholder = t === 'question' ? 'e.g. Where can I find rice cakes near Adyar?' : t === 'buy' ? 'e.g. Ask at the counter — they keep it in the freezer.' : 'What worked, what you’d change, how your family liked it…';
+}
+function updatePreview(){
+  $('#titleCount').textContent = $('#wTitle').value.length;
+  $('#bodyCount').textContent = $('#wBody').value.length;
+  $('#livePrev').innerHTML = postCard(collect(), {}, true);
+}
+function saveDraft(){ clearTimeout(draftT); draftT = setTimeout(() => { const p = collect(); delete p.photo; store.set('draft', p); $('#draftNote').textContent = 'Draft saved on this device'; }, 500); }
+function fillDraft(p){
+  if (!p) return;
+  const set = (id, v) => { if (v != null && $('#' + id)) $('#' + id).value = v; };
+  const r = document.querySelector(`input[name="ptype"][value="${p.type}"]`); if (r) r.checked = true;
+  set('wName', p.author); set('wArea', p.area); set('wTitle', p.title); set('wBody', p.body); wState.tags = p.tags || [];
+  const d = p.d || {};
+  if (p.type === 'recipe') { set('wDish', d.dish); set('wDrama', d.drama); set('wScene', d.scene); set('wTime', d.time); set('wServes', d.serves); set('wLevel', d.level); set('wSpice', d.spice);
+    const dr = document.querySelector(`input[name="wDiet"][value="${d.diet}"]`); if (dr) dr.checked = true;
+    if (d.ings && d.ings.length) { $('#ingRows').innerHTML = ''; d.ings.forEach(i => $('#ingRows').append(ingRow(i))); }
+    if (d.steps && d.steps.length) { $('#stepRows').innerHTML = ''; d.steps.forEach(s => $('#stepRows').append(stepRow(s))); } }
+  if (p.type === 'swap') { set('sKorean', d.korean); set('sLocal', d.local); set('sHow', d.how); set('sDish', d.dish); const sr = document.querySelector(`input[name="sRate"][value="${d.rate}"]`); if (sr) sr.checked = true; }
+  if (p.type === 'buy') { set('bItem', d.item); set('bStore', d.store); set('bStoreName', d.storeName); set('bPrice', d.price); set('bPack', d.pack); set('bDate', d.date); set('bStock', d.stock); }
+  if (p.type === 'question') set('qRelated', d.related);
+}
+function renderTags(){ $('#tagPick').innerHTML = TAGS.map(t => `<button type="button" data-tag="${t}" aria-pressed="${wState.tags.includes(t)}">${t}</button>`).join(''); }
+function resetWrite(){
+  $('#writeForm').reset(); wState = { photo:'', tags:[] };
+  $('#ingRows').innerHTML = ''; [{},{},{}].forEach(v => $('#ingRows').append(ingRow(v)));
+  $('#stepRows').innerHTML = ''; ['',''].forEach(v => $('#stepRows').append(stepRow(v)));
+  $('#bDate').value = new Date().toISOString().slice(0, 10);
+  $('#photoPrev').hidden = true; $('#dropTxt').hidden = false; $('#photoRemove').hidden = true;
+  document.querySelectorAll('.field.invalid').forEach(f => f.classList.remove('invalid')); document.querySelectorAll('.ferr').forEach(x => x.remove()); $('#errSummary').hidden = true;
+}
+function initWrite(){
+  if (!writeReady) {
+    writeReady = true;
+    const opts = '<option value="">Choose a recipe</option>' + recipes.map(r => `<option>${esc(r.name)}</option>`).join('') + '<option>Other Korean dish</option>';
+    $('#wDish').innerHTML = opts; $('#qRelated').innerHTML = opts.replace('Choose a recipe', 'Not about a recipe');
+    resetWrite();
+    const d = store.get('draft', null); if (d) { fillDraft(d); $('#draftNote').textContent = 'Draft restored'; }
+    const f = $('#writeForm');
+    f.addEventListener('input', e => { if (e.target.closest('.field.invalid')) { e.target.closest('.field').classList.remove('invalid'); const er = e.target.closest('.field').querySelector('.ferr'); if (er) er.remove(); } $('#sceneField').hidden = !$('#wDrama').value; $('#bStoreNameF').hidden = !/store|mart|supermarket/i.test($('#bStore').value); if (!document.querySelector('.field.invalid') && $('#wRules').checked) $('#errSummary').hidden = true; updatePreview(); saveDraft(); });
+    f.addEventListener('change', e => { if (e.target.name === 'ptype') setType(); f.dispatchEvent(new Event('input')); });
+    $('#addIng').onclick = () => { if ($('#ingRows').children.length >= 15) return toast('Up to 15 ingredients'); const r = ingRow(); $('#ingRows').append(r); r.querySelector('input').focus(); };
+    $('#addStep').onclick = () => { if ($('#stepRows').children.length >= 10) return toast('Up to 10 steps'); const r = stepRow(); $('#stepRows').append(r); numberSteps(); r.querySelector('textarea').focus(); };
+    f.addEventListener('click', e => { const rm = e.target.closest('.rm'); if (!rm) return; const row = rm.closest('.ing-row, .step-row'), box = row.parentElement; if (box.children.length > 1) row.remove(); else row.querySelectorAll('input,textarea').forEach(i => i.value = ''); numberSteps(); f.dispatchEvent(new Event('input')); });
+    $('#tagPick').addEventListener('click', e => { const b = e.target.closest('[data-tag]'); if (!b) return; const t = b.dataset.tag, i = wState.tags.indexOf(t); if (i > -1) wState.tags.splice(i, 1); else if (wState.tags.length < 3) wState.tags.push(t); else return toast('Pick up to 3 tags'); renderTags(); updatePreview(); saveDraft(); });
+    const drop = $('#drop'), loadPhoto = file => { if (!file || !/^image\//.test(file.type)) return toast('Please choose an image file'); const img = new Image(); img.onload = () => { const s = Math.min(1, 900 / Math.max(img.width, img.height)), c = document.createElement('canvas'); c.width = Math.round(img.width * s); c.height = Math.round(img.height * s); c.getContext('2d').drawImage(img, 0, 0, c.width, c.height); wState.photo = c.toDataURL('image/jpeg', .78); $('#photoPrev').src = wState.photo; $('#photoPrev').hidden = false; $('#dropTxt').hidden = true; $('#photoRemove').hidden = false; URL.revokeObjectURL(img.src); updatePreview(); }; img.src = URL.createObjectURL(file); };
+    $('#wPhoto').addEventListener('change', e => loadPhoto(e.target.files[0]));
+    ['dragover','dragenter'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
+    ['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('over'); }));
+    drop.addEventListener('drop', e => loadPhoto(e.dataTransfer.files[0]));
+    $('#photoRemove').onclick = () => { wState.photo = ''; $('#wPhoto').value = ''; $('#photoPrev').hidden = true; $('#dropTxt').hidden = false; $('#photoRemove').hidden = true; updatePreview(); };
+    $('#rulesLink').onclick = e => { e.preventDefault(); $('#rules').scrollIntoView({ behavior:'smooth', block:'center' }); };
+    f.addEventListener('submit', submitPost);
+  }
+  setType(); renderTags(); numberSteps(); $('#sceneField').hidden = !$('#wDrama').value; $('#bStoreNameF').hidden = !/store|mart|supermarket/i.test($('#bStore').value); updatePreview();
+}
+function fieldError(el, msg){ const f = el.closest('.field') || el.closest('.check'); if (f.classList.contains('field')) { f.classList.add('invalid'); if (!f.querySelector('.ferr')) f.insertAdjacentHTML('beforeend', `<span class="ferr" id="${el.id}-err">${esc(msg)}</span>`); el.setAttribute('aria-describedby', el.id + '-err'); } return { id:el.id, msg }; }
+function submitPost(e){
   e.preventDefault();
-  const mine = store.get('posts', []);
-  mine.unshift({ id: 'm' + Date.now(), mine: true, author: $('#cName').value.trim(), bg: '#FCE9DF', when: 'Just now', cat: $('#cCat').value, title: $('#cTitle').value.trim(), body: $('#cBody').value.trim(), likes: 0, comments: 0 });
-  store.set('posts', mine); store.set('points', store.get('points', 0) + 50);
-  e.target.reset(); openCompose(false); postCat = 'All'; renderPosts(); toast('Posted! +50 points');
-});
+  document.querySelectorAll('.field.invalid').forEach(f => f.classList.remove('invalid')); document.querySelectorAll('.ferr').forEach(x => x.remove());
+  const t = wType(), errs = [];
+  document.querySelectorAll('#writeForm [data-req]').forEach(el => { const sec = el.closest('.tsec'); if (sec && sec.hidden) return; const empty = el.type === 'checkbox' ? !el.checked : !el.value.trim(); if (empty) errs.push(fieldError(el, el.dataset.req)); });
+  const p = collect();
+  if (t === 'recipe') { if (!p.d.ings.length) errs.push(fieldError($('#ingRows .i-n'), 'Add at least one ingredient.')); if (!p.d.steps.length) errs.push(fieldError($('#stepRows textarea'), 'Add at least one step.')); }
+  if (p.photo && !$('#wOwn').checked) errs.push(fieldError($('#wOwn'), 'Confirm the photo is your own, or remove it.'));
+  const sum = $('#errSummary');
+  if (errs.length) { sum.innerHTML = `<strong>Please fix ${errs.length} thing${errs.length > 1 ? 's' : ''}:</strong><ul>${errs.map(x => `<li><a href="#write" data-focus="${x.id}">${esc(x.msg)}</a></li>`).join('')}</ul>`; sum.hidden = false; sum.focus(); sum.onclick = ev => { const a = ev.target.closest('[data-focus]'); if (a) { ev.preventDefault(); const el = document.getElementById(a.dataset.focus); el.focus(); el.scrollIntoView({ block:'center' }); } }; return; }
+  sum.hidden = true;
+  p.id = 'm' + Date.now(); p.mine = true;
+  const mine = store.get('posts', []); mine.unshift(p);
+  try { localStorage.setItem('kib_posts', JSON.stringify(mine)); } catch (err) { p.photo = ''; store.set('posts', mine); toast('Saved without the photo — storage is full on this device'); }
+  store.set('points', store.get('points', 0) + PTYPES[t].pts);
+  try { localStorage.removeItem('kib_draft'); } catch (err) {}
+  resetWrite(); $('#draftNote').textContent = '';
+  postCat = 'All'; location.hash = 'community'; renderPosts();
+  setTimeout(() => { const c = document.getElementById('post-' + p.id); if (c) { c.scrollIntoView({ block:'center' }); c.classList.add('new-flash'); } }, 300);
+  toast(`Posted! +${PTYPES[t].pts} points`);
+}
 
 /* ---------- restaurants ---------- */
 let sel = 0;
